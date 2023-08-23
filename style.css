@@ -1,0 +1,263 @@
+body {
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Lora, sans-serif;
+}
+
+
+#burger-toggle {
+  position: absolute;
+  appearance: none;
+  opacity: 0;
+
+  &:checked {
+    & ~ .menu {
+      opacity: 1;
+      visibility: visible;
+
+      .menu-nav-link span div,
+      img,
+      .title p {
+        transform: translateY(0);
+        transition: 1.2s 0.1s cubic-bezier(0.35, 0, 0.07, 1);
+      }
+
+    }
+
+    & ~ .burger-menu {
+      .line {
+        &::after {
+          transform: translateX(0);
+        }
+
+        &:nth-child(1) {
+          transform: translateY(calc(var(--burger-menu-radius) / 5))
+            rotate(45deg);
+        }
+
+        &:nth-child(2) {
+          transform: scaleX(0);
+        }
+
+        &:nth-child(3) {
+          transform: translateY(calc(var(--burger-menu-radius) / -5))
+            rotate(-45deg);
+        }
+      }
+    }
+  }
+}
+
+.burger-menu {
+  --burger-menu-radius: 4em;
+
+  position: fixed;
+  top: 5vh;
+  left: 5vw;
+  z-index: 100;
+  display: block;
+  width: var(--burger-menu-radius);
+  height: var(--burger-menu-radius);
+  outline: none;
+  cursor: pointer;
+}
+
+  .line {
+    position: absolute;
+    left: 25%;
+    width: 50%;
+    height: 3px;
+    background: hsl(0, 0%, 0%);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: 0.5s;
+
+    &:nth-child(1) {
+      top: 30%;
+    }
+
+    &:nth-child(2) {
+      top: 50%;
+    }
+
+    &:nth-child(3) {
+      top: 70%;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--primary-color-darker);
+      transform: translateX(-100%);
+      transition: 0.25s;
+    }
+
+
+  &:hover {
+    .line::after {
+      transform: translateX(0);
+    }
+  }
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #b9acd3;
+  opacity: 0;
+  overflow-x: hidden;
+  visibility: hidden;
+  transition: 0.3s;
+}
+ 
+
+  &-nav {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    list-style-type: none;
+
+ 
+
+    &-item {
+      flex: 1;
+    }
+
+    &-link {
+      position: relative;
+      display: inline-flex;
+      font-size: 2rem;
+      color: white;
+      text-decoration: none;
+
+      span {
+        overflow: hidden;
+
+        div {
+          transform: translateY(102%);
+        }
+      }
+
+      &::after {
+        position: absolute;
+        content: "";
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--primary-color);
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.5s;
+      }
+
+    }
+  }
+
+  .menu-nav-item {
+    color: aliceblue;
+  }
+  .menu-nav-link {
+    text-decoration: none;
+    font-family: sans-serif;
+    color: aliceblue;
+    font-size: larger;
+  }
+
+ .top-page {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 65%, rgb(255, 255, 255)), url('bg3.jpg');;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 1519px;
+    height: 730px;
+  }
+
+  .second-page {
+    display: flex;
+  }
+
+  .about {
+    margin-top: 100px;
+    margin-left: 50px;
+  }
+ 
+
+ h1 {
+     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+     font-size: calc(30px + (75 - 30) * ((100vw - 300px) / (1300 - 300)));
+    margin-bottom: 0;
+    display: block;
+ }
+ h4 {
+   color: rgba(95, 91, 91, 0.518);
+ }
+ 
+ .button-visit {
+    border: none;
+    border-radius: 22px;
+    color: aliceblue;
+    background-color: blueviolet;
+    padding: 9px;
+ }
+ .button-cv{
+  background-color: rgb(255, 255, 255);
+  border-color: blueviolet;
+  color: blueviolet;
+  border-radius: 20px;
+  padding: 6px;
+ }
+ .button-cv:hover {
+   background-color: blueviolet;
+   color: #fff;
+   transition: 0.8s;
+ }
+ .button-visit:hover {
+   background-color: #9676d7;
+   transition: 0.5s;
+ }
+ #form {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 97rem;
+ }
+ .btn1 {
+  border-radius: 15px;
+  color: blueviolet;
+  background-color: aliceblue;
+  border-color: blueviolet;
+  padding: 10px;
+  margin-top: 30px;
+
+   
+ }
+ .btn1:hover {
+  background-color: blueviolet;
+  color: aliceblue;
+  border: none;
+  transition: 1s;
+  margin-top: 30px;
+  padding: 10px;
+ }
+
+ .btn {
+  border-radius: 33%;
+ }
+
